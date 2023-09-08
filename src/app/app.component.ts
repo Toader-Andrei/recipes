@@ -40,6 +40,7 @@ export class AppComponent {
     const newList = this.recipes.filter((food) => {
       return food.name !== recipe.name;
     });
+    // log
 
     const isFavorite = this.favoriteRecipes.find((favRecipe) => {
       return favRecipe.name === recipe.name;
