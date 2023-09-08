@@ -1,0 +1,62 @@
+<h1 class="mt-5 d-flex justify-content-center rounded" *ngIf="recipes.length">
+  Recipes list
+</h1>
+
+<div [class.box]="isActive">
+  <ol class="list-group list-group-numbered">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-start p-2"
+      *ngFor="let recipe of recipes"
+    >
+      <div class="ms-2 me-auto">
+        <div class="fw-bold">{{ recipe.name }}</div>
+        {{ recipe.description }}
+      </div>
+      <div class="text-end">
+        <div>
+          <span class="badge bg-primary rounded-pill">{{
+            recipe.difficulty
+          }}</span>
+          <i
+            class="fa-regular fa-circle-xmark"
+            (click)="onDeleteRecipe(recipe)"
+          ></i>
+
+          <i
+            class="fa-regular fa-star ps-1"
+            (click)="onPreferredRecipe(recipe)"
+          ></i>
+        </div>
+        <div>
+          <h6 class="mb-0 mt-1">{{ recipe.masterchef }}</h6>
+        </div>
+      </div>
+    </li>
+  </ol>
+</div>
+
+<h1
+  class="mt-5 d-flex justify-content-center rounded"
+  *ngIf="favoriteRecipes.length"
+>
+  Favorite recipes list
+</h1>
+
+<ol class="list-group list-group-numbered">
+  <li
+    class="list-group-item d-flex justify-content-between align-items-start"
+    *ngFor="let favoriteRecipe of favoriteRecipes"
+  >
+    <div class="ms-2 me-auto">
+      <div class="fw-bold">{{ favoriteRecipe.name }}</div>
+    </div>
+  </li>
+</ol>
+
+<button
+  class="btn btn-danger mt-2"
+  *ngIf="recipes.length"
+  (click)="onDeleteAllRecipes()"
+>
+  Delete all
+</button>

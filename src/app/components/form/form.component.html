@@ -1,0 +1,74 @@
+<form class="border container mt-5 p-5 w-50" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label for="recipename" class="form-label mb-0">Recipe name</label>
+    <input
+      type="text"
+      class="form-control"
+      name="name"
+      id="recipename"
+      placeholder="Recipe name"
+      [(ngModel)]="name"
+      [ngClass]="{
+        'border-danger': validation
+      }"
+    />
+    <span *ngIf="validation">Please fill up this gap!</span>
+  </div>
+  <div class="mb-3">
+    <label for="recipedescription" class="form-label mb-0"
+      >Recipe Description</label
+    >
+    <textarea
+      class="form-control"
+      id="recipedescription"
+      rows="5"
+      name="description"
+      [(ngModel)]="description"
+      placeholder="Recipe description"
+      [ngClass]="{
+        'border-danger': validation
+      }"
+    ></textarea>
+    <span *ngIf="validation">Please fill up this gap!</span>
+  </div>
+  <div class="d-flex justify-content-between">
+    <div>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="difficulty"
+        [(ngModel)]="difficulty"
+        [ngClass]="{
+          'border-danger': validation
+        }"
+      >
+        <option selected value="">Select difficulty</option>
+        <option value="Easy">Easy</option>
+        <option value="Medium">Medium</option>
+        <option value="Hard">Hard</option>
+      </select>
+
+      <span *ngIf="validation">Please fill up this gap!</span>
+    </div>
+    <div>
+      <select
+        class="form-select"
+        aria-label="Default select example"
+        name="masterchef"
+        [(ngModel)]="masterchef"
+        [ngClass]="{
+          'border-danger': validation
+        }"
+      >
+        <option selected value="">Select masterchef</option>
+        <option value="Gordon Ramsay">Gordon Ramsay</option>
+        <option value="Oliver James">Oliver James</option>
+        <option value="Catalin Scarlatescu">Catalin Scarlatescu</option>
+        <option value="Florinel Coman">Florinel Coman</option>
+      </select>
+
+      <span *ngIf="validation">Please fill up this gap!</span>
+    </div>
+    <button class="btn btn-primary" type="submit">Add</button>
+  </div>
+</form>

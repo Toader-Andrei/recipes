@@ -1,0 +1,11 @@
+<div class="row border border rounded mt-5" *ngIf="recipes.length">
+  <div class="col-3 text-center border-end p-0" *ngFor="let chef of chefs">
+    <h4>{{ chef.name }}</h4>
+    <hr class="mt-0" />
+    <ol>
+      <li *ngFor="let recipe of chef.recipes">
+        {{ recipe.name }}
+      </li>
+    </ol>
+  </div>
+</div>
