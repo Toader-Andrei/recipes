@@ -31,10 +31,13 @@
     ></textarea>
     <span *ngIf="validation">Please fill up this gap!</span>
   </div>
-  <div class="d-flex justify-content-between">
-    <div>
+  <div class="row">
+    <div class="col-sm-6 col-md-5 px-1">
+      <label for="recipedifficulty" class="form-label mb-0"
+        >Select difficulty</label
+      >
       <select
-        class="form-select"
+        class="form-select mb-2"
         aria-label="Default select example"
         name="difficulty"
         [(ngModel)]="difficulty"
@@ -50,7 +53,8 @@
 
       <span *ngIf="validation">Please fill up this gap!</span>
     </div>
-    <div>
+    <div class="col-sm-6 col-md-5 px-1">
+      <label for="recipechef" class="form-label mb-0">Select masterchef</label>
       <select
         class="form-select"
         aria-label="Default select example"
@@ -69,6 +73,11 @@
 
       <span *ngIf="validation">Please fill up this gap!</span>
     </div>
-    <button class="btn btn-primary" type="submit">Add</button>
+    <button
+      class="btn btn-primary col-sm-12 col-md-2 mb-2 mt-md-4 mt-2"
+      type="submit"
+    >
+      Add
+    </button>
   </div>
 </form>

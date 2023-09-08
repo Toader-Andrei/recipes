@@ -1,6 +1,9 @@
-<div class="row border border rounded mt-5" *ngIf="recipes.length">
-  <div class="col-3 text-center border-end p-0" *ngFor="let chef of chefs">
-    <h4>{{ chef.name }}</h4>
+<div class="row border rounded mt-5" *ngIf="recipes.length">
+  <div
+    class="col-md-3 col-sm-6 text-center border p-0 m-sm-2 m-md-0"
+    *ngFor="let chef of chefs"
+  >
+    <h4 class="max-height">{{ chef.name }}</h4>
     <hr class="mt-0" />
     <ol>
       <li *ngFor="let recipe of chef.recipes">
