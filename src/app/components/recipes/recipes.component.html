@@ -2,7 +2,7 @@
   Recipes list
 </h1>
 
-<div [class.box]="isActive">
+<div [ngClass]="{ box: isActive }">
   <ol class="list-group list-group-numbered">
     <li
       class="list-group-item d-flex justify-content-between align-items-start p-2"

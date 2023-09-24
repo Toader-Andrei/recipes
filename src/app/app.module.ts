@@ -7,9 +7,10 @@ import { AppComponent } from './app.component';
 import { FormComponent } from './components/form/form.component';
 import { RecipesComponent } from './components/recipes/recipes.component';
 import { CooksComponent } from './components/cooks/cooks.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 @NgModule({
-  declarations: [AppComponent, FormComponent, RecipesComponent, CooksComponent],
+  declarations: [AppComponent, FormComponent, RecipesComponent, CooksComponent, NotificationsComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

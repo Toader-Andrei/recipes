@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CHEFS } from '../../mock-chefs';
+
 import { Chef } from '../../Chef';
 import { Recipe } from '../../Recipe';
 

@@ -13,6 +13,7 @@ export class AppComponent {
   favoriteRecipes: Recipe[] = [];
   chefs: Chef[] = CHEFS;
   isActive: boolean = false;
+  notifications: string[] = [];
 
   addRecipe(recipe: Recipe): void {
     this.recipes.push(recipe);
@@ -23,6 +24,7 @@ export class AppComponent {
       foundChef.recipes.push(recipe);
     }
     this.isActive = true;
+    this.notifications.push(' You have added a new recipe!');
   }
 
   onDeleteAll() {
@@ -34,13 +36,14 @@ export class AppComponent {
       });
       list.recipes = newList;
     });
+    this.isActive = false;
+    this.notifications.push(' You have deleted all the recipes!');
   }
 
   onDeleteRecipe(recipe: Recipe) {
     const newList = this.recipes.filter((food) => {
       return food.name !== recipe.name;
     });
-    // log
 
     const isFavorite = this.favoriteRecipes.find((favRecipe) => {
       return favRecipe.name === recipe.name;
@@ -53,26 +56,27 @@ export class AppComponent {
       this.favoriteRecipes = favorites;
     }
 
-    this.chefs.forEach((removedRecipe) => {
-      const aaa = removedRecipe.recipes.filter((a) => {
-        return a.name !== recipe.name;
+    this.chefs.forEach((chef) => {
+      const updatedRecipes = chef.recipes.filter((chefRecipe) => {
+        return chefRecipe.name !== recipe.name;
       });
-      return (removedRecipe.recipes = aaa);
+      chef.recipes = updatedRecipes;
     });
 
-    if ((this.recipes.length = 0)) {
+    this.notifications.push(' You have deleted a recipe!');
+    this.recipes = newList;
+
+    if (newList.length === 0) {
       this.isActive = false;
       return;
     }
-
-    this.recipes = newList;
   }
 
   onPreferredRecipeList(recipe: Recipe) {
     if (!this.favoriteRecipes.includes(recipe)) {
       this.favoriteRecipes.push(recipe);
     } else {
-      alert('maiiii');
+      alert('This recipe is already in your favorite list!');
     }
   }
 }
